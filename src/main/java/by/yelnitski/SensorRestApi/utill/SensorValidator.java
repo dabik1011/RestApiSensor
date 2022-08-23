@@ -24,6 +24,10 @@ public class SensorValidator implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
+        Sensor sensor = (Sensor) target;
 
+        if(sensorService.getSensorByName(sensor.getName()).isPresent()) {
+            errors.rejectValue("name", "", "Сенсор с таким именем уже существует");
+        }
     }
 }

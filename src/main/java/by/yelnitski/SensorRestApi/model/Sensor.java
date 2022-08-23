@@ -30,17 +30,20 @@ public class Sensor {
     public Sensor() {
     }
 
-    public LocalDate getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDate createdAt) {
+    public Sensor(String name, LocalDate createdAt, List<Measurement> measurements) {
+        this.name = name;
         this.createdAt = createdAt;
+        this.measurements = measurements;
     }
 
     public Sensor(String name, List<Measurement> measurements) {
         this.name = name;
         this.measurements = measurements;
+    }
+
+    public Sensor(String name, LocalDate createdAt) {
+        this.name = name;
+        this.createdAt = createdAt;
     }
 
     public int getId() {
@@ -67,6 +70,13 @@ public class Sensor {
         this.measurements = measurements;
     }
 
+        public LocalDate getCreatedAt() {
+        return createdAt;
+    }
+
+        public void setCreatedAt(LocalDate createdAt) {
+        this.createdAt = createdAt;
+    }
     @Override
     public String toString() {
         return "Sensor{" +
